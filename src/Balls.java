@@ -2,41 +2,106 @@
 import java.awt.geom.Point2D.Double;
 import java.awt.geom.Point2D;
 //import java.lang.Math;
-import java.awt.geom.Point2D;
+import java.awt.Point;
+import java.util.*;
 
 public class Balls {
+
+	private static final Point DIRECTION = new Point(10, 10);
 
 	public  static  final  double Max = 5;
 	public  static  final  double Min = -5;
 
-	public Point2D.Double p1 = new Point2D.Double(100,100);
-	public Point2D.Double p2 = new Point2D.Double(200,200);
-	public Point2D.Double p3 = new Point2D.Double(200,100);
-	public Point2D.Double p4 = new Point2D.Double(100,200);
+	private static int longueur=500;
+	private static int hauteur=500;
 
-	public void translatePoint(int dx, int dy) {
-		this.p1.setLocation(this.p1.getX() + dx, this.p1.getY() + dy);
-		this.p2.setLocation(this.p2.getX() + dx, this.p2.getY() + dy);
-		this.p3.setLocation(this.p3.getX() + dx, this.p3.getY() + dy);
-		this.p4.setLocation(this.p4.getX() + dx, this.p4.getY() + dy);
+	private LinkedList<Point> balls;
+	private LinkedList<Point> dir;
 
+	public Balls() {
+		this.balls = new LinkedList<Point>();
+		this.dir = new LinkedList<Point>();
+	}
+
+	public void addBall() {
+		this.balls.add(new Point());
+		this.dir.add(new Point(DIRECTION));
+	}
+
+	public void translate(int dx, int dy) {
+		for (Point b : balls)
+			b.translate(dx, dy);
+
+	}
+
+
+	public void translateBalls() {
+		final int BALLSIZE = 10;
+		Iterator<Point> itDir = dir.iterator();
+
+		for(Point b : balls) {
+			final Point dir = itDir.next();
+
+			Random rand = new Random(); //instance of random class
+			int upperbound = 50; //generate random values from 0-50
+			int int_random1 = rand.nextInt(upperbound);
+			int int_random2 = rand.nextInt(upperbound);
+			final int dx = int_random1;
+			final int dy = int_random2;
+
+			// Traitement des collisions
+			if (b.x + dir.x > longueur && b.y + dir.y > hauteur) {
+					dir.setLocation(-dx, -dy);
+					b.translate(longueur - b.x, hauteur - b.y);
+				}
+				else if (b.x + dir.x > longueur) {
+					dir.setLocation(-dx, dir.y);
+					b.translate(longueur - b.x, dir.y);
+				}
+				else if (b.y + dir.y > hauteur) {
+					dir.setLocation(dir.x, -dy);
+					b.translate(dir.x, hauteur - b.y);
+				}
+				else if (b.x + dir.x < BALLSIZE && b.y + dir.y < BALLSIZE){
+					dir.setLocation(dx, dy);
+					b.translate(BALLSIZE - b.x, BALLSIZE - b.y);
+				}
+				else if (b.x + dir.x < BALLSIZE) {
+					dir.setLocation(dx, dir.y);
+					b.translate(BALLSIZE - b.x, dir.y);
+				}
+				else if (b.y + dir.y < BALLSIZE) {
+					dir.setLocation(dir.x, dy);
+					b.translate(dir.x, BALLSIZE - b.y);
+				}
+				else if (b.x + dir.x > longueur && b.y + dir.y < BALLSIZE) {
+					dir.setLocation(-dx, dy);
+					b.translate(longueur - b.x, BALLSIZE - b.y);
+				}
+				else if (b.x + dir.x < BALLSIZE && b.y + dir.y > hauteur) {
+					dir.setLocation(dx, -dy);
+					b.translate(BALLSIZE - b.x, hauteur - b.y);
+				}
+				else
+					b.translate(dir.x, dir.y);
+			}
 	}
 
 	public void reInit() {
-		this.p1.setLocation(1,100);
-		this.p2.setLocation(-1,-1);
-		this.p3.setLocation(1,-1);
-		this.p4.setLocation(-1,1);
-
+		for (Point b : balls) {
+			b.setLocation(0,0);
+		}
 	}
+
+	public Iterator<Point> iterator(){
+		return balls.iterator();
+	}
+
 
 	@Override
 	public String toString() {
 		String ch = new String();
-		ch = "balle 1 : (" + this.p1.getX() + " ; " + this.p1.getY() + "); ";
-		ch = ch + "balle 2 : (" + this.p2.getX() + " ; " + this.p2.getY() + "); ";
-		ch = ch + "balle 3 : (" + this.p3.getX() + " ; " + this.p3.getY() + "); ";
-		ch = ch + "balle 4 : (" + this.p4.getX() + " ; " + this.p4.getY() + "); ";
+
 		return ch;
 
 	}

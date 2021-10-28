@@ -1,45 +1,40 @@
 import java.util.Random;
 import gui.*;
 import java.awt.Color;
-
+import java.awt.Point;
+import java.util.*;
 
 public class BallsSimulator implements Simulable {
 
-	private Balls b;
+	private Balls balls;
 	private GUISimulator gui;
 
-	public BallsSimulator(GUISimulator gui, Balls b){
+	public BallsSimulator(GUISimulator gui, Balls balls){
 
 			this.gui = gui;
-			this.b = b;
+			this.balls = balls;
 	}
 
 	@Override
 	public void next() {
-
-		Random rand = new Random(); //instance of random class
-	  int upperbound = 50; //generate random values from 0-50
-    int int_random1 = rand.nextInt(upperbound);
-	  int int_random2 = rand.nextInt(upperbound);
-		this.b.translatePoint(int_random1, int_random2);
+		this.balls.translateBalls();
+		Iterator<Point> itBalls = balls.iterator();
 		gui.reset();
-		gui.addGraphicalElement(new Oval((int)b.p1.getX(), (int)b.p1.getY(), Color.decode("#1f77b4"), Color.decode("#1f77b4"), 10)) ;
-		gui.addGraphicalElement(new Oval((int)b.p2.getX(), (int)b.p2.getY(), Color.decode("#26b41f"), Color.decode("#26b41f"), 10)) ;
-		gui.addGraphicalElement(new Oval((int)b.p3.getX(), (int)b.p3.getY(), Color.decode("#b41f62"), Color.decode("#b41f62"), 10)) ;
-		gui.addGraphicalElement(new Oval((int)b.p4.getX(), (int)b.p4.getY(), Color.decode("#b4621f"), Color.decode("#b4621f"), 10)) ;
-
+		while(itBalls.hasNext()) {
+			Point b = itBalls.next();
+			gui.addGraphicalElement(new Oval((int)b.getX(), (int)b.getY(), Color.decode("#b4621f"), Color.decode("#b4621f"), 10)) ;
+		}
 
 	}
 
 	@Override
 	public void restart() {
-
-		this.b.reInit();
+		this.balls.reInit();
+		Iterator<Point> itBalls = balls.iterator();
 		gui.reset();
-		gui.addGraphicalElement(new Oval((int)b.p1.getX(), (int)b.p1.getY(), Color.decode("#1f77b4"), Color.decode("#1f77b4"), 10)) ;
-		gui.addGraphicalElement(new Oval((int)b.p2.getX(), (int)b.p2.getY(), Color.decode("#26b41f"), Color.decode("#26b41f"), 10)) ;
-		gui.addGraphicalElement(new Oval((int)b.p3.getX(), (int)b.p3.getY(), Color.decode("#b41f62"), Color.decode("#b41f62"), 10)) ;
-		gui.addGraphicalElement(new Oval((int)b.p4.getX(), (int)b.p4.getY(), Color.decode("#b4621f"), Color.decode("#b4621f"), 10)) ;
-
+		while(itBalls.hasNext()) {
+			Point b = itBalls.next();
+			gui.addGraphicalElement(new Oval((int)b.getX(), (int)b.getY(), Color.decode("#b4621f"), Color.decode("#b4621f"), 10)) ;
+		}
 	}
 }
