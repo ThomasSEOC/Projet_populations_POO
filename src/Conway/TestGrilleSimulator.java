@@ -6,13 +6,13 @@ import java.util.*;
 public class TestGrilleSimulator {
 
 	public static void main(String[] args) {
-		Grille g = new Grille(10,10);
-		GUISimulator gui = new GUISimulator (100, 100, Color.BLACK) ;
+		Grille g = new Grille(50,50);
+		GUISimulator gui = new GUISimulator (500, 500, Color.BLACK) ;
 		gui.setSimulable(new GrilleSimulator (gui,g)) ;
 		gui.reset();
 		int i,j;
-		for (i=0;i<g.nbr_cellules_hauteur; i++) {
-			for (j=0;i<g.nbr_cellules_longueur ; j++ ) {
+		for (i=0;i<g.grille.length; i++) {
+			for (j=0;j<g.grille[i].length ; j++ ) {
 				if(g.grille[i][j] == 1){
 					gui.addGraphicalElement(new Rectangle(i*10+5,j*10+5, Color.BLUE, Color.BLUE,10));
 				}

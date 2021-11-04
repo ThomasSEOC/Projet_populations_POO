@@ -22,8 +22,8 @@ public class GrilleSimulator implements Simulable {
 		g.next_gen();
 		gui.reset();
 		int i,j;
-		for (i=0;i<g.nbr_cellules_hauteur-1; i++) {
-			for (j=0;i<g.nbr_cellules_longueur-1 ; j++ ) {
+		for (i=1;i<g.grille.length-2; i++) {
+			for (j=1;j<g.grille[i].length-2 ; j++ ) {
 				if(g.grille[i][j] == 1){
 					gui.addGraphicalElement(new Rectangle(i*10+5,j*10+5, Color.BLUE, Color.BLUE,10));
 				}
@@ -38,12 +38,12 @@ public class GrilleSimulator implements Simulable {
 
 	@Override
 	public void restart() {
-		this.g.Init();
+		g.Init();
 		gui.reset();
 		int i,j;
-		for (i=0;i<this.g.nbr_cellules_hauteur; i++) {
-			for (j=0;i<this.g.nbr_cellules_longueur ; j++ ) {
-				if(g.grille[i][j] == 1){
+		for (i=1;i< g.grille.length-2; i++) {
+			for (j=1;j< g.grille[i].length-2; j++ ) {
+				if(g.grille[i][j]== 1){
 					gui.addGraphicalElement(new Rectangle(i*10+5,j*10+5, Color.BLUE, Color.BLUE,10));
 				}
 				if(g.grille[i][j] == 0){

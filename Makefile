@@ -33,7 +33,7 @@ testGUI:
 # ou bien lancer l'execution en passant par ce Makefile:
 #   > make exeIHM
 exeGUI:
-	java -classpath bin:bin/gui.jar TestGUI
+	java -classpath bin:bin/gui.jar TestGrille
 
 clean:
 	rm -rf bin/*.class

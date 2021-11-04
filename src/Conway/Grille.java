@@ -16,24 +16,26 @@ public class Grille{
     this.nbr_cellules_hauteur = h;
     this.nbr_cellules_longueur = l;
 
-    int[][] grille = new int[h][l];
-    int[][] previous_grille = new int[h][l];
+    int[][] grille;
+    this.grille = new int[h][l];
+    int[][] previous_grille;
+    this.previous_grille = new int[h][l];
 
     int i,j;
-    for (i = 0; i<this.nbr_cellules_hauteur ; i++ ) {
-      for (j = 0; j<this.nbr_cellules_longueur ; j++ ) {
-        if(i == 0 || i == this.nbr_cellules_hauteur){
-          grille[i][j] = 0;
-          previous_grille[i][j] = 0;
+    for (i = 0; i<this.grille.length ; i++ ) {
+      for (j = 0; j<this.grille[i].length ; j++ ) {
+        if(j == 0 || j == this.grille[i].length-1){
+          this.grille[i][j] = 0;
+          this.previous_grille[i][j] = 0;
         }
-        if(j == 0 || j == this.nbr_cellules_longueur){
-          grille[i][j] = 0;
-          previous_grille[i][j] = 0;
+        else if (i == 0 || i == this.grille.length-1) {
+          this.grille[i][j] = 0;
+          this.previous_grille[i][j] = 0;
         }
         else{
           Random random = new Random();
-          grille[i][j] = random.nextInt(1);
-          previous_grille[i][j] = random.nextInt(1);
+          this.grille[i][j] = random.nextInt(2);
+          this.previous_grille[i][j] = random.nextInt(2);
         }
 
       }
@@ -70,20 +72,20 @@ public class Grille{
 
   public void Init(){
     int i,j;
-    for (i = 0; i<nbr_cellules_hauteur ; i++ ) {
-      for (j = 0; j<nbr_cellules_longueur ; j++ ) {
-        if(i == 0 || i == nbr_cellules_hauteur){
+    for (i = 0; i<grille.length ; i++ ) {
+      for (j = 0; j<grille[i].length ; j++ ) {
+        if(j == 0 || j == grille[i].length-1){
           grille[i][j] = 0;
           previous_grille[i][j] = 0;
         }
-        if(j == 0 || j == nbr_cellules_longueur){
+        else if (i == 0 || i == grille.length-1) {
           grille[i][j] = 0;
           previous_grille[i][j] = 0;
         }
         else{
           Random random = new Random();
-          grille[i][j] = random.nextInt(1);
-          previous_grille[i][j] = random.nextInt(1);
+          grille[i][j] = random.nextInt(2);
+          previous_grille[i][j] = random.nextInt(2);
         }
 
       }
@@ -93,19 +95,22 @@ public class Grille{
 
   public void next_gen(){
     int i,j;
-    for (i=1; i<nbr_cellules_hauteur-1 ; i++ ) {
-      for (j=1; j<nbr_cellules_longueur-1; j++) {
-        int voisins=detect_voisins(previous_grille,i,j);
-        if(grille[i][j]==1){
-          if(voisins<2){
-            grille[i][j] = 0;
-          }
+    for (i = 0; i<grille.length ; i++ ) {
+      for (j = 0; j<grille[i].length ; j++ ) {
+        if(j == 0 || j == grille[i].length-1){
+          grille[i][j] = 0;
+          previous_grille[i][j] = 0;
+        }
+        else if (i == 0 || i == grille.length-1) {
+          grille[i][j] = 0;
+          previous_grille[i][j] = 0;
         }
         else{
-          if(voisins>2){
-            grille[i][j] = 1;
-          }
+          Random random = new Random();
+          grille[i][j] = random.nextInt(2);
+          previous_grille[i][j] = random.nextInt(2);
         }
+
       }
 
     }
