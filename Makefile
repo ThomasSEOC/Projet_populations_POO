@@ -24,6 +24,7 @@
 all: testGUI
 
 testGUI:
+	javac -d bin -classpath bin/gui.jar -sourcepath src src/TestGrille.java
 	javac -d bin -classpath bin/gui.jar -sourcepath src src/TestGrilleSimulator.java
 
 
@@ -32,8 +33,11 @@ testGUI:
 #   > java -classpath bin TestGUI
 # ou bien lancer l'execution en passant par ce Makefile:
 #   > make exeIHM
-exeGUI:
+exeGrille:
 	java -classpath bin:bin/gui.jar TestGrille
+
+exeGrilleGUI:
+	java -classpath bin:bin/gui.jar TestGrilleSimulator
 
 clean:
 	rm -rf bin/*.class

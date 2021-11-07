@@ -6,7 +6,7 @@ import java.util.*;
 public class TestGrilleSimulator {
 
 	public static void main(String[] args) {
-		Grille g = new Grille(50,50);
+		Grille g = new Grille(10,10);
 		GUISimulator gui = new GUISimulator (500, 500, Color.BLACK) ;
 		gui.setSimulable(new GrilleSimulator (gui,g)) ;
 		gui.reset();
