@@ -3,12 +3,12 @@ import java.awt.Color;
 import java.awt.Point;
 import java.util.*;
 
-public class TestGrilleSimulator {
+public class TestJDLV {
 
 	public static void main(String[] args) {
-		Grille g = new Grille(100,100);
+		JDLV g = new JDLV(100,100);
 		GUISimulator gui = new GUISimulator (500, 500, Color.BLACK) ;
-		gui.setSimulable(new Simulator (gui,g)) ;
+		gui.setSimulable(new GrilleSimulator (gui,g)) ;
 		gui.reset();
 		int i,j;
 		for (i=0;i<g.grille.length; i++) {

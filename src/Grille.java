@@ -6,15 +6,15 @@ import java.util.*;
 import java.util.Random;
 
 
-public class Grille{
-  public int nbr_cellules_longueur;
-  public int nbr_cellules_hauteur;
-  public int[][] grille;
-  public int[][] previous_grille;
+class Grille{
+  //protected int nbr_cellules_longueur;
+  //protected int nbr_cellules_hauteur;
+  protected int[][] grille;
+  protected int[][] previous_grille;
 
   public Grille(int h, int l){
-    this.nbr_cellules_hauteur = h;
-    this.nbr_cellules_longueur = l;
+    //this.nbr_cellules_hauteur = h;
+    //this.nbr_cellules_longueur = l;
 
     int[][] grille;
     this.grille = new int[h][l];
@@ -152,7 +152,7 @@ public class Grille{
     }
 
   }
-
+  
   public void Init(){
     int i,j;
     for (i = 0; i<grille.length ; i++ ) {
@@ -182,25 +182,32 @@ public class Grille{
 
     }
   }
-
   public void next_gen(){
     int i,j;
-    //copygrille(this.previous_grille, this.grille);
+    copygrille(this.previous_grille, this.grille);
     for (i = 0; i<this.grille.length ; i++ ) {
       for (j = 0; j<this.grille[i].length ; j++ ) {
-        int life = detect_voisins(this.grille,i,j);
-        System.out.println(life);
-        if(((this.grille[i][j] == 1) && (life < 2))){
-          this.grille[i][j] = 0;
-          //System.out.println("dead life");
+        int life = detect_voisins(this.previous_grille,i,j);
+        //System.out.println("life de " + i +" "+ j+ " " + life);
+
+        if(this.previous_grille[i][j] == 1){
+          if( life < 2 ){
+            this.grille[i][j] = 0;
+          }
+          else if(life > 3){
+            this.grille[i][j] = 0;
+          }
+          else{
+            this.grille[i][j] = 1;
+          }
         }
-        if ((this.grille[i][j] ==  0) && (life == 3)) {
+        else if (life == 3) {
           this.grille[i][j] = 1;
           //System.out.println("new life");
         }
       }
     }
-    this.previous_grille = this.grille;
+
   }
 
 
