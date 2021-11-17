@@ -18,7 +18,7 @@ public class TestGrille {
 		System.out.println();
     }
     System.out.println();
-
+		System.out.println(g.detect_voisins(g.grille,0,0));
 		System.out.println(g.detect_voisins(g.grille,1,1));
 		System.out.println(g.detect_voisins(g.grille,1,2));
 		System.out.println(g.detect_voisins(g.grille,1,3));

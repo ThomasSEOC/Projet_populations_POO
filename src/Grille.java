@@ -25,8 +25,17 @@ public class Grille{
     for (i = 0; i<this.grille.length ; i++ ) {
       for (j = 0; j<this.grille[i].length ; j++ ) {
           Random random = new Random();
-          this.grille[i][j] = random.nextInt(2);
-          this.previous_grille[i][j] = random.nextInt(2);
+          int var = random.nextInt(100);
+          if(var<15){
+            this.grille[i][j] = 1;
+            this.previous_grille[i][j] = 1;
+          }
+          else{
+            this.grille[i][j] = 0;
+            this.previous_grille[i][j] = 0;
+          }
+          //this.grille[i][j] = random.nextInt(2);
+          //this.previous_grille[i][j] = random.nextInt(2);
         }
 
       }
@@ -45,7 +54,7 @@ public class Grille{
       if (grille[i+1][j] == 1){life++;}
       if (grille[i+1][j+1] == 1){life++;}
     }
-    if (i==grille.length-1 && j==0) {
+    else if ((i==grille.length-1) && (j==0)) {
       if (grille[i-1][grille.length-1] == 1){life++;}
       if (grille[i-1][j] == 1){life++;}
       if (grille[i-1][j+1] == 1){life++;}
@@ -55,7 +64,7 @@ public class Grille{
       if (grille[0][j] == 1){life++;}
       if (grille[0][j+1] == 1){life++;}
     }
-    if (i==0 && j==grille[i].length-1) {
+    else if ((i==0) && (j==grille[i].length-1)) {
       if (grille[grille.length-1][grille.length-1] == 1){life++;}
       if (grille[grille.length-1][grille.length-1] == 1){life++;}
       if (grille[grille.length-1][0] == 1){life++;}
@@ -65,7 +74,7 @@ public class Grille{
       if (grille[i+1][j] == 1){life++;}
       if (grille[i+1][0] == 1){life++;}
     }
-    if (i==grille.length-1 && j==grille[i].length-1) {
+    else if ((i==grille.length-1) && (j==grille[i].length-1)) {
       if (grille[i-1][j-1] == 1){life++;}
       if (grille[i-1][j] == 1){life++;}
       if (grille[i-1][0] == 1){life++;}
@@ -87,7 +96,7 @@ public class Grille{
         if (grille[i+1][j+1] == 1){life++;}
       }
 
-      if (i==grille.length-1) {
+      else if (i==grille.length-1) {
         if (grille[i-1][j-1] == 1){life++;}
         if (grille[i-1][j] == 1){life++;}
         if (grille[i-1][j+1] == 1){life++;}
@@ -97,7 +106,7 @@ public class Grille{
         if (grille[0][j] == 1){life++;}
         if (grille[0][j+1] == 1){life++;}
       }
-      if (j==0) {
+      else if (j==0) {
         if (grille[i-1][grille.length-1] == 1){life++;}
         if (grille[i-1][j] == 1){life++;}
         if (grille[i-1][j+1] == 1){life++;}
@@ -107,7 +116,7 @@ public class Grille{
         if (grille[i+1][j] == 1){life++;}
         if (grille[i+1][j+1] == 1){life++;}
       }
-      if (j==grille[i].length-1) {
+      else if (j==grille[i].length-1) {
         if (grille[i-1][j-1] == 1){life++;}
         if (grille[i-1][j] == 1){life++;}
         if (grille[i-1][0] == 1){life++;}
@@ -119,7 +128,7 @@ public class Grille{
       }
 
       else{
-        if(i>0 && j>0 && i<grille.length-1 && j<grille[i].length-1){
+
           if (grille[i-1][j-1] == 1){life++;}
           if (grille[i-1][j] == 1){life++;}
           if (grille[i-1][j+1] == 1){life++;}
@@ -128,7 +137,7 @@ public class Grille{
           if (grille[i+1][j-1] == 1){life++;}
           if (grille[i+1][j] == 1){life++;}
           if (grille[i+1][j+1] == 1){life++;}
-        }
+
       }
     }
     return life;
@@ -148,19 +157,26 @@ public class Grille{
     int i,j;
     for (i = 0; i<grille.length ; i++ ) {
       for (j = 0; j<grille[i].length ; j++ ) {
-        if(j == 0 || j == grille[i].length-1){
-          grille[i][j] = 0;
-          previous_grille[i][j] = 0;
-        }
-        else if (i == 0 || i == grille.length-1) {
-          grille[i][j] = 0;
-          previous_grille[i][j] = 0;
-        }
-        else{
+        // if(j == 0 || j == grille[i].length-1){
+        //   grille[i][j] = 0;
+        //   previous_grille[i][j] = 0;
+        // }
+        // else if (i == 0 || i == grille.length-1) {
+        //   grille[i][j] = 0;
+        //   previous_grille[i][j] = 0;
+        // }
+        // else{
           Random random = new Random();
-          grille[i][j] = random.nextInt(2);
-          previous_grille[i][j] = random.nextInt(2);
-        }
+          int var = random.nextInt(100);
+          if(var<20){
+            this.grille[i][j] = 1;
+            this.previous_grille[i][j] = 1;
+          }
+          else{
+            this.grille[i][j] = 0;
+            this.previous_grille[i][j] = 0;
+          }
+        //}
 
       }
 
@@ -169,19 +185,22 @@ public class Grille{
 
   public void next_gen(){
     int i,j;
-    copygrille(previous_grille, grille);
-    for (i = 0; i<grille.length ; i++ ) {
-      for (j = 0; j<grille[i].length ; j++ ) {
-        int life = detect_voisins(grille,i,j);
-        if(((grille[i][j] == 1) && (life<2))){
-          grille[i][j] = 0;
-          }
-        else if (((grille[i][j]==0) && (life == 3))) {
-          grille[i][j] = 1;
-          }
+    //copygrille(this.previous_grille, this.grille);
+    for (i = 0; i<this.grille.length ; i++ ) {
+      for (j = 0; j<this.grille[i].length ; j++ ) {
+        int life = detect_voisins(this.grille,i,j);
+        System.out.println(life);
+        if(((this.grille[i][j] == 1) && (life < 2))){
+          this.grille[i][j] = 0;
+          //System.out.println("dead life");
+        }
+        if ((this.grille[i][j] ==  0) && (life == 3)) {
+          this.grille[i][j] = 1;
+          //System.out.println("new life");
+        }
       }
-
     }
+    this.previous_grille = this.grille;
   }
 
 
