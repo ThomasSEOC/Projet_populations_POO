@@ -30,18 +30,38 @@ class Schelling extends Grille{
     this.previous_grille = new int[h][l];
 
 
-    int i,j;
+    // int i,j;
+    //
+    // for (i = 0; i<this.grille.length; i++ ) {
+    //   for (j = 0; j<this.grille[i].length; j++ ) {
+    //       Random random = new Random();
+    //       int c = random.nextInt(color_nbr);
+    //       if(c == 0){
+    //         //System.out.println("here");
+    //         Point p = new Point(i,j);
+    //         System.out.println(p.toString());
+    //         this.list_homes.addFirst(p);
+    //
+    //       }
+    //       this.grille[i][j] = c;
+    //       this.previous_grille[i][j] = c;
+    //     }
+    //   }
 
-    for (i = 0; i<this.grille.length; i++ ) {
-      for (j = 0; j<this.grille[i].length; j++ ) {
+      int i,j;
+
+      for (i = 0; i<this.grille.length; i++ ) {
+        for (j = 0; j<this.grille[i].length; j++ ) {
           Random random = new Random();
-          int c = random.nextInt(color_nbr);
+          int c = random.nextInt(this.color_nbr);
           if(c == 0){
-            //System.out.println("here");
+            //c = random.nextInt(color_nbr);
             Point p = new Point(i,j);
-            System.out.println(p.toString());
-            this.list_homes.addFirst(p);
-
+            if (list_homes.size()<=0) {
+              this.list_homes.addFirst(p);
+            }
+            int a = random.nextInt(list_homes.size());
+            this.list_homes.add(a,p);
           }
           this.grille[i][j] = c;
           this.previous_grille[i][j] = c;
@@ -174,12 +194,14 @@ class Schelling extends Grille{
 
   public LinkedList<Point> seekhome(int[][] grille, int i, int j, LinkedList<Point> list_homes, int color){
     int z;
-    System.out.println("list_homes");
-    for (z=0;z<list_homes.size() ;z++ ) {
-      System.out.println(list_homes.get(z).toString());
-    }
+    //System.out.println("list_homes");
+    // for (z=0;z<list_homes.size() ;z++ ) {
+    //   System.out.println(list_homes.get(z).toString());
+    // }
     Point home = new Point();
-    home = list_homes.removeLast();
+    Random random = new Random();
+    int a = random.nextInt(list_homes.size());
+    home = list_homes.remove(a);
     grille[(int)(home.getX())][(int)(home.getY())] = color;
     grille[i][j] = 0;
     Point p = new Point(i,j);
@@ -189,7 +211,7 @@ class Schelling extends Grille{
 
   public void Init_Schelling(){
     int i,j;
-
+    this.list_homes.clear();
     for (i = 0; i<this.grille.length; i++ ) {
       for (j = 0; j<this.grille[i].length; j++ ) {
         Random random = new Random();
@@ -197,7 +219,11 @@ class Schelling extends Grille{
         if(c == 0){
           //c = random.nextInt(color_nbr);
           Point p = new Point(i,j);
-          this.list_homes.addFirst(p);
+          if (list_homes.size()<=0) {
+            this.list_homes.addFirst(p);
+          }
+          int a = random.nextInt(list_homes.size());
+          this.list_homes.add(a,p);
         }
         this.grille[i][j] = c;
         this.previous_grille[i][j] = c;

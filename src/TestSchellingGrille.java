@@ -6,7 +6,7 @@ import java.util.*;
 public class TestSchellingGrille {
 
 	public static void main(String[] args) {
-		Schelling g = new Schelling(10,10,3);
+		Schelling g = new Schelling(50,50,3);
 
     int i, j;
 

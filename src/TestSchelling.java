@@ -7,7 +7,7 @@ import java.util.*;
 public class TestSchelling {
 
 	public static void main(String[] args) {
-		Schelling g = new Schelling(10,10,3);
+		Schelling g = new Schelling(50,50,4);
 		GUISimulator gui = new GUISimulator (500, 500, Color.BLACK) ;
 		gui.setSimulable(new SchellingSimulator (gui,g)) ;
 		gui.reset();
