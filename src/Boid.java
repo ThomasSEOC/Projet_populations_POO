@@ -13,7 +13,7 @@ public class Boid {
 
     protected final int MINIMAL_DISTANCE = 2; // A tester
     protected final int TOO_CLOSE = 2;
-    protected final int SPEED_LIMIT = 5 ;
+    protected final int SPEED_LIMIT = 10 ;
     protected final int FORCE_LIMIT = 50 ;
 
     protected final int DIST_VISIBLE = 10;
