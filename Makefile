@@ -30,6 +30,7 @@ testGUI:
 	javac -d bin -classpath bin/gui.jar -sourcepath src src/TestJDLV.java
 	javac -d bin -classpath bin/gui.jar -sourcepath src src/TestSchelling.java
 	javac -d bin -classpath bin/gui.jar -sourcepath src src/TestSchellingGrille.java
+	javac -d bin -classpath bin/gui.jar -sourcepath src src/TestBoidsSimulator.java
 
 # Execution:
 # on peut taper directement la ligne de commande :
