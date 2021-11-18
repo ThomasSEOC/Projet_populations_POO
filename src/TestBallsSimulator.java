@@ -15,7 +15,7 @@ public class TestBallsSimulator {
 		balls.addBall();
 		balls.addBall();
 		balls.addBall();
-		
+
 		Iterator<Point> balls_main = balls.iterator();
 		while(balls_main.hasNext()) {
 			Point b = balls_main.next();

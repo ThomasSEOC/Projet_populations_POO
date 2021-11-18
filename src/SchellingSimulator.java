@@ -5,13 +5,12 @@ import java.awt.Point;
 import java.util.*;
 import java.util.Random;
 
+public class SchellingSimulator implements Simulable {
 
-public class ImmigrationSimulator implements Simulable {
-
-	private Immigration g;
+	private Schelling g;
 	private GUISimulator gui;
 
-	public ImmigrationSimulator(GUISimulator gui, Immigration g){
+	public SchellingSimulator(GUISimulator gui, Schelling g){
 
 			this.gui = gui;
 			this.g = g;
@@ -19,7 +18,7 @@ public class ImmigrationSimulator implements Simulable {
 
 	@Override
 	public void next() {
-		g.next_gen_immigration();
+		g.next_gen_Schelling();
 		gui.reset();
 		int i,j;
 		for (i=1;i<g.grille.length-2; i++) {
@@ -44,7 +43,7 @@ public class ImmigrationSimulator implements Simulable {
 
 	@Override
 	public void restart() {
-		g.Init_immigration();
+		g.Init_Schelling();
 		gui.reset();
 		int i,j;
 		for (i=1;i< g.grille.length-2; i++) {

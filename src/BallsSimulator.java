@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Point;
 import java.util.*;
 
+
 public class BallsSimulator implements Simulable {
 
 	private Balls balls;

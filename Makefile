@@ -24,10 +24,12 @@
 all: testGUI
 
 testGUI:
-	#javac -d bin -classpath bin/gui.jar -sourcepath src src/TestGrille.java
-	#javac -d bin -classpath bin/gui.jar -sourcepath src src/TestGrilleSimulator.java
-	#javac -d bin -classpath bin/gui.jar -sourcepath src src/TestJDLV.java
-	javac -d bin -classpath bin/gui.jar -sourcepath src src/TestImmigration.java
+	javac -d bin -classpath bin/gui.jar -sourcepath src src/TestBallsSimulator.java
+	javac -d bin -classpath bin/gui.jar -sourcepath src src/TestGrille.java
+	javac -d bin -classpath bin/gui.jar -sourcepath src src/TestGrilleSimulator.java
+	javac -d bin -classpath bin/gui.jar -sourcepath src src/TestJDLV.java
+	javac -d bin -classpath bin/gui.jar -sourcepath src src/TestSchelling.java
+	javac -d bin -classpath bin/gui.jar -sourcepath src src/TestSchellingGrille.java
 
 # Execution:
 # on peut taper directement la ligne de commande :
