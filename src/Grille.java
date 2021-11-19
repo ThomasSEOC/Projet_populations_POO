@@ -42,105 +42,136 @@ class Grille{
 
   }
 
+  // public int detect_voisins(int[][] grille, int i, int j){
+  //   int life=0;
+  //   if ((i==0) && (j==0)){
+  //     if (grille[grille.length-1][grille.length-1] == 1){life++;}
+  //     if (grille[grille.length-1][j] == 1){life++;}
+  //     if (grille[grille.length-1][j+1] == 1){life++;}
+  //     if (grille[i][grille.length-1] == 1){life++;}
+  //     if (grille[i][j+1] == 1){life++;}
+  //     if (grille[i+1][grille.length-1] == 1){life++;}
+  //     if (grille[i+1][j] == 1){life++;}
+  //     if (grille[i+1][j+1] == 1){life++;}
+  //   }
+  //   else if ((i==grille.length-1) && (j==0)) {
+  //     if (grille[i-1][grille.length-1] == 1){life++;}
+  //     if (grille[i-1][j] == 1){life++;}
+  //     if (grille[i-1][j+1] == 1){life++;}
+  //     if (grille[i][grille.length-1] == 1){life++;}
+  //     if (grille[i][j+1] == 1){life++;}
+  //     if (grille[0][grille.length-1] == 1){life++;}
+  //     if (grille[0][j] == 1){life++;}
+  //     if (grille[0][j+1] == 1){life++;}
+  //   }
+  //   else if ((i==0) && (j==grille[i].length-1)) {
+  //     if (grille[grille.length-1][grille.length-1] == 1){life++;}
+  //     if (grille[grille.length-1][grille.length-1] == 1){life++;}
+  //     if (grille[grille.length-1][0] == 1){life++;}
+  //     if (grille[i][j-1] == 1){life++;}
+  //     if (grille[i][0] == 1){life++;}
+  //     if (grille[i+1][j-1] == 1){life++;}
+  //     if (grille[i+1][j] == 1){life++;}
+  //     if (grille[i+1][0] == 1){life++;}
+  //   }
+  //   else if ((i==grille.length-1) && (j==grille[i].length-1)) {
+  //     if (grille[i-1][j-1] == 1){life++;}
+  //     if (grille[i-1][j] == 1){life++;}
+  //     if (grille[i-1][0] == 1){life++;}
+  //     if (grille[i][j-1] == 1){life++;}
+  //     if (grille[i][0] == 1){life++;}
+  //     if (grille[0][grille.length-1] == 1){life++;}
+  //     if (grille[0][grille.length-1] == 1){life++;}
+  //     if (grille[0][0] == 1){life++;}
+  //   }
+  //   else {
+  //     if (i==0){
+  //       if (grille[grille.length-1][j-1] == 1){life++;}
+  //       if (grille[grille.length-1][j] == 1){life++;}
+  //       if (grille[grille.length-1][j+1] == 1){life++;}
+  //       if (grille[i][j-1] == 1){life++;}
+  //       if (grille[i][j+1] == 1){life++;}
+  //       if (grille[i+1][j-1] == 1){life++;}
+  //       if (grille[i+1][j] == 1){life++;}
+  //       if (grille[i+1][j+1] == 1){life++;}
+  //     }
+  //
+  //     else if (i==grille.length-1) {
+  //       if (grille[i-1][j-1] == 1){life++;}
+  //       if (grille[i-1][j] == 1){life++;}
+  //       if (grille[i-1][j+1] == 1){life++;}
+  //       if (grille[i][j-1] == 1){life++;}
+  //       if (grille[i][j+1] == 1){life++;}
+  //       if (grille[0][j-1] == 1){life++;}
+  //       if (grille[0][j] == 1){life++;}
+  //       if (grille[0][j+1] == 1){life++;}
+  //     }
+  //     else if (j==0) {
+  //       if (grille[i-1][grille.length-1] == 1){life++;}
+  //       if (grille[i-1][j] == 1){life++;}
+  //       if (grille[i-1][j+1] == 1){life++;}
+  //       if (grille[i][grille[i].length-1] == 1){life++;}
+  //       if (grille[i][j+1] == 1){life++;}
+  //       if (grille[i+1][grille[i].length-1] == 1){life++;}
+  //       if (grille[i+1][j] == 1){life++;}
+  //       if (grille[i+1][j+1] == 1){life++;}
+  //     }
+  //     else if (j==grille[i].length-1) {
+  //       if (grille[i-1][j-1] == 1){life++;}
+  //       if (grille[i-1][j] == 1){life++;}
+  //       if (grille[i-1][0] == 1){life++;}
+  //       if (grille[i][j-1] == 1){life++;}
+  //       if (grille[i][0] == 1){life++;}
+  //       if (grille[i+1][0] == 1){life++;}
+  //       if (grille[i+1][0] == 1){life++;}
+  //       if (grille[i+1][0] == 1){life++;}
+  //     }
+  //
+  //     else{
+  //
+  //         if (grille[i-1][j-1] == 1){life++;}
+  //         if (grille[i-1][j] == 1){life++;}
+  //         if (grille[i-1][j+1] == 1){life++;}
+  //         if (grille[i][j-1] == 1){life++;}
+  //         if (grille[i][j+1] == 1){life++;}
+  //         if (grille[i+1][j-1] == 1){life++;}
+  //         if (grille[i+1][j] == 1){life++;}
+  //         if (grille[i+1][j+1] == 1){life++;}
+  //
+  //     }
+  //   }
+  //   return life;
+  // }
+
   public int detect_voisins(int[][] grille, int i, int j){
-    int life=0;
-    if ((i==0) && (j==0)){
-      if (grille[grille.length-1][grille.length-1] == 1){life++;}
-      if (grille[grille.length-1][j] == 1){life++;}
-      if (grille[grille.length-1][j+1] == 1){life++;}
-      if (grille[i][grille.length-1] == 1){life++;}
-      if (grille[i][j+1] == 1){life++;}
-      if (grille[i+1][grille.length-1] == 1){life++;}
-      if (grille[i+1][j] == 1){life++;}
-      if (grille[i+1][j+1] == 1){life++;}
-    }
-    else if ((i==grille.length-1) && (j==0)) {
-      if (grille[i-1][grille.length-1] == 1){life++;}
-      if (grille[i-1][j] == 1){life++;}
-      if (grille[i-1][j+1] == 1){life++;}
-      if (grille[i][grille.length-1] == 1){life++;}
-      if (grille[i][j+1] == 1){life++;}
-      if (grille[0][grille.length-1] == 1){life++;}
-      if (grille[0][j] == 1){life++;}
-      if (grille[0][j+1] == 1){life++;}
-    }
-    else if ((i==0) && (j==grille[i].length-1)) {
-      if (grille[grille.length-1][grille.length-1] == 1){life++;}
-      if (grille[grille.length-1][grille.length-1] == 1){life++;}
-      if (grille[grille.length-1][0] == 1){life++;}
-      if (grille[i][j-1] == 1){life++;}
-      if (grille[i][0] == 1){life++;}
-      if (grille[i+1][j-1] == 1){life++;}
-      if (grille[i+1][j] == 1){life++;}
-      if (grille[i+1][0] == 1){life++;}
-    }
-    else if ((i==grille.length-1) && (j==grille[i].length-1)) {
-      if (grille[i-1][j-1] == 1){life++;}
-      if (grille[i-1][j] == 1){life++;}
-      if (grille[i-1][0] == 1){life++;}
-      if (grille[i][j-1] == 1){life++;}
-      if (grille[i][0] == 1){life++;}
-      if (grille[0][grille.length-1] == 1){life++;}
-      if (grille[0][grille.length-1] == 1){life++;}
-      if (grille[0][0] == 1){life++;}
-    }
-    else {
-      if (i==0){
-        if (grille[grille.length-1][j-1] == 1){life++;}
-        if (grille[grille.length-1][j] == 1){life++;}
-        if (grille[grille.length-1][j+1] == 1){life++;}
-        if (grille[i][j-1] == 1){life++;}
-        if (grille[i][j+1] == 1){life++;}
-        if (grille[i+1][j-1] == 1){life++;}
-        if (grille[i+1][j] == 1){life++;}
-        if (grille[i+1][j+1] == 1){life++;}
-      }
+  int life=0;
 
-      else if (i==grille.length-1) {
-        if (grille[i-1][j-1] == 1){life++;}
-        if (grille[i-1][j] == 1){life++;}
-        if (grille[i-1][j+1] == 1){life++;}
-        if (grille[i][j-1] == 1){life++;}
-        if (grille[i][j+1] == 1){life++;}
-        if (grille[0][j-1] == 1){life++;}
-        if (grille[0][j] == 1){life++;}
-        if (grille[0][j+1] == 1){life++;}
-      }
-      else if (j==0) {
-        if (grille[i-1][grille.length-1] == 1){life++;}
-        if (grille[i-1][j] == 1){life++;}
-        if (grille[i-1][j+1] == 1){life++;}
-        if (grille[i][grille[i].length-1] == 1){life++;}
-        if (grille[i][j+1] == 1){life++;}
-        if (grille[i+1][grille[i].length-1] == 1){life++;}
-        if (grille[i+1][j] == 1){life++;}
-        if (grille[i+1][j+1] == 1){life++;}
-      }
-      else if (j==grille[i].length-1) {
-        if (grille[i-1][j-1] == 1){life++;}
-        if (grille[i-1][j] == 1){life++;}
-        if (grille[i-1][0] == 1){life++;}
-        if (grille[i][j-1] == 1){life++;}
-        if (grille[i][0] == 1){life++;}
-        if (grille[i+1][0] == 1){life++;}
-        if (grille[i+1][0] == 1){life++;}
-        if (grille[i+1][0] == 1){life++;}
-      }
+  // Case [i-1][j-1]
+  if( grille[(i-1 + grille.length)%grille.length][ (j-1 + grille.length)%grille.length] == 1 ) {life++;}
 
-      else{
+  // Case [i-1][j]
+  if( grille[(i-1 + grille.length)%grille.length][ (j)%grille.length] == 1 ) {life++;}
 
-          if (grille[i-1][j-1] == 1){life++;}
-          if (grille[i-1][j] == 1){life++;}
-          if (grille[i-1][j+1] == 1){life++;}
-          if (grille[i][j-1] == 1){life++;}
-          if (grille[i][j+1] == 1){life++;}
-          if (grille[i+1][j-1] == 1){life++;}
-          if (grille[i+1][j] == 1){life++;}
-          if (grille[i+1][j+1] == 1){life++;}
+  // Case [i-1][j+1]
+  if( grille[(i-1 + grille.length)%grille.length][ (j+1)%grille.length] == 1 ) {life++;}
 
-      }
-    }
-    return life;
+  // Case [i][j-1]
+  if( grille[(i)%grille.length][(j-1 + grille.length)%grille.length] == 1 ) {life++;}
+
+  // Case [i-1][j+1]
+  if( grille[(i)%grille.length][(j+1)%grille.length] == 1 ) {life++;}
+
+  // Case [i+1][j-1]
+  if( grille[(i+1)%grille.length][(j-1 + grille.length)%grille.length] == 1 ) {life++;}
+
+  // Case [i+1][j]
+  if( grille[(i+1)%grille.length][(j)%grille.length] == 1 ) {life++;}
+
+  // Case [i+1][j+1]
+  if( grille[(i+1)%grille.length][(j+1)%grille.length] == 1 ) {life++;}
+
+
+  return life;
   }
 
   public void copygrille(int[][] a, int[][] b){

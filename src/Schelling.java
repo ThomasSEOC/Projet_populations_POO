@@ -70,106 +70,137 @@ class Schelling extends Grille{
   }
 
 
+  // public int detect_voisins_Schelling(int[][] grille, int i, int j, int n){
+  //
+  //   int life=0;
+  //   if ((i==0) && (j==0)){
+  //     if (grille[grille.length-1][grille.length-1] != n && grille[grille.length-1][grille.length-1] != 0){life++;}
+  //     if (grille[grille.length-1][j] != n && grille[grille.length-1][j] != 0){life++;}
+  //     if (grille[grille.length-1][j+1] != n && grille[grille.length-1][j+1] != 0){life++;}
+  //     if (grille[i][grille.length-1] != n && grille[i][grille.length-1] != 0){life++;}
+  //     if (grille[i][j+1] != n && grille[i][j+1] != 0){life++;}
+  //     if (grille[i+1][grille.length-1] != n && grille[i+1][grille.length-1] != n){life++;}
+  //     if (grille[i+1][j] != n && grille[i+1][j] != 0){life++;}
+  //     if (grille[i+1][j+1] != n && grille[i+1][j+1] != 0){life++;}
+  //   }
+  //   else if ((i==grille.length-1) && (j==0)) {
+  //     if (grille[i-1][grille.length-1] != n && grille[i-1][grille.length-1] != 0){life++;}
+  //     if (grille[i-1][j] != n && grille[i-1][j] != 0){life++;}
+  //     if (grille[i-1][j+1] != n && grille[i-1][j+1] != 0){life++;}
+  //     if (grille[i][grille.length-1] != n && grille[i][grille.length-1] != 0){life++;}
+  //     if (grille[i][j+1] != n && grille[i][j+1] != 0){life++;}
+  //     if (grille[0][grille.length-1] != n && grille[0][grille.length-1] != 0){life++;}
+  //     if (grille[0][j] != n && grille[0][j] != 0){life++;}
+  //     if (grille[0][j+1] != n && grille[0][j+1] != 0){life++;}
+  //   }
+  //   else if ((i==0) && (j==grille[i].length-1)) {
+  //     if (grille[grille.length-1][grille.length-1] != n && grille[grille.length-1][grille.length-1] != 0){life++;}
+  //     if (grille[grille.length-1][grille.length-1] != n && grille[grille.length-1][grille.length-1] != 0){life++;}
+  //     if (grille[grille.length-1][0] != n && grille[grille.length-1][0] != 0){life++;}
+  //     if (grille[i][j-1] != n && grille[i][j-1] != 0){life++;}
+  //     if (grille[i][0] != n && grille[i][0] != 0){life++;}
+  //     if (grille[i+1][j-1] != n && grille[i+1][j-1] != 0){life++;}
+  //     if (grille[i+1][j] != n && grille[i+1][j] != 0){life++;}
+  //     if (grille[i+1][0] != n && grille[i+1][0] != 0){life++;}
+  //   }
+  //   else if ((i==grille.length-1) && (j==grille[i].length-1)) {
+  //     if (grille[i-1][j-1] != n && grille[i-1][j-1] != 0){life++;}
+  //     if (grille[i-1][j] != n && grille[i-1][j] != 0){life++;}
+  //     if (grille[i-1][0] != n && grille[i-1][0] != 0){life++;}
+  //     if (grille[i][j-1] != n && grille[i][j-1] != 0){life++;}
+  //     if (grille[i][0] != n && grille[i][0] != 0){life++;}
+  //     if (grille[0][grille.length-1] != n && grille[0][grille.length-1] != 0){life++;}
+  //     if (grille[0][grille.length-1] != n && grille[0][grille.length-1] != 0){life++;}
+  //     if (grille[0][0] != n && grille[0][0] != 0){life++;}
+  //   }
+  //   else {
+  //     if (i==0){
+  //       if (grille[grille.length-1][j-1] != n && grille[grille.length-1][j-1] != 0){life++;}
+  //       if (grille[grille.length-1][j] != n && grille[grille.length-1][j] != 0){life++;}
+  //       if (grille[grille.length-1][j+1] != n && grille[grille.length-1][j+1] != 0){life++;}
+  //       if (grille[i][j-1] != n && grille[i][j-1] != 0){life++;}
+  //       if (grille[i][j+1] != n && grille[i][j+1] != 0){life++;}
+  //       if (grille[i+1][j-1] != n && grille[i+1][j-1] != 0){life++;}
+  //       if (grille[i+1][j] != n && grille[i+1][j] != 0){life++;}
+  //       if (grille[i+1][j+1] != n && grille[i+1][j+1] != 0){life++;}
+  //     }
+  //
+  //     else if (i==grille.length-1) {
+  //       if (grille[i-1][j-1] != n && grille[i-1][j-1] != 0){life++;}
+  //       if (grille[i-1][j] != n && grille[i-1][j] != 0){life++;}
+  //       if (grille[i-1][j+1] != n && grille[i-1][j+1] != 0){life++;}
+  //       if (grille[i][j-1] != n && grille[i][j-1] != 0){life++;}
+  //       if (grille[i][j+1] != n && grille[i][j+1] != 0){life++;}
+  //       if (grille[0][j-1] != n && grille[0][j-1] != 0){life++;}
+  //       if (grille[0][j] != n && grille[0][j] != 0){life++;}
+  //       if (grille[0][j+1] != n && grille[0][j+1] != 0){life++;}
+  //     }
+  //     else if (j==0) {
+  //       if (grille[i-1][grille.length-1] != n && grille[i-1][grille.length-1] != 0){life++;}
+  //       if (grille[i-1][j] != n && grille[i-1][j] != 0){life++;}
+  //       if (grille[i-1][j+1] != n && grille[i-1][j+1] != 0){life++;}
+  //       if (grille[i][grille[i].length-1] != n && grille[i][grille[i].length-1] != 0){life++;}
+  //       if (grille[i][j+1] != n && grille[i][j+1] != n){life++;}
+  //       if (grille[i+1][grille[i].length-1] != n && grille[i+1][grille[i].length-1] != 0){life++;}
+  //       if (grille[i+1][j] != n && grille[i+1][j] != 0){life++;}
+  //       if (grille[i+1][j+1] != n && grille[i+1][j+1] != 0){life++;}
+  //     }
+  //     else if (j==grille[i].length-1) {
+  //       if (grille[i-1][j-1] != n && grille[i-1][j-1] != 0){life++;}
+  //       if (grille[i-1][j] != n && grille[i-1][j] != 0){life++;}
+  //       if (grille[i-1][0] != n && grille[i-1][0] != 0){life++;}
+  //       if (grille[i][j-1] != n && grille[i][j-1] != 0){life++;}
+  //       if (grille[i][0] != n && grille[i][0] != 0){life++;}
+  //       if (grille[i+1][0] != n && grille[i+1][0] != 0){life++;}
+  //       if (grille[i+1][0] != n && grille[i+1][0] != 0){life++;}
+  //       if (grille[i+1][0] != n && grille[i+1][0] != 0){life++;}
+  //     }
+  //
+  //     else{
+  //
+  //         if (grille[i-1][j-1] != n && grille[i-1][j-1] != 0){life++;}
+  //         if (grille[i-1][j] != n && grille[i-1][j] != 0){life++;}
+  //         if (grille[i-1][j+1] != n && grille[i-1][j+1] != 0){life++;}
+  //         if (grille[i][j-1] != n && grille[i][j-1] != 0){life++;}
+  //         if (grille[i][j+1] != n && grille[i][j+1] != 0){life++;}
+  //         if (grille[i+1][j-1] != n && grille[i+1][j-1] != 0){life++;}
+  //         if (grille[i+1][j] != n && grille[i+1][j] != 0){life++;}
+  //         if (grille[i+1][j+1] != n && grille[i+1][j+1] != 0){life++;}
+  //
+  //     }
+  //   }
+  //   return life;
+  // }
+
   public int detect_voisins_Schelling(int[][] grille, int i, int j, int n){
+  int life=0;
 
-    int life=0;
-    if ((i==0) && (j==0)){
-      if (grille[grille.length-1][grille.length-1] != n && grille[grille.length-1][grille.length-1] != 0){life++;}
-      if (grille[grille.length-1][j] != n && grille[grille.length-1][j] != 0){life++;}
-      if (grille[grille.length-1][j+1] != n && grille[grille.length-1][j+1] != 0){life++;}
-      if (grille[i][grille.length-1] != n && grille[i][grille.length-1] != 0){life++;}
-      if (grille[i][j+1] != n && grille[i][j+1] != 0){life++;}
-      if (grille[i+1][grille.length-1] != n && grille[i+1][grille.length-1] != n){life++;}
-      if (grille[i+1][j] != n && grille[i+1][j] != 0){life++;}
-      if (grille[i+1][j+1] != n && grille[i+1][j+1] != 0){life++;}
-    }
-    else if ((i==grille.length-1) && (j==0)) {
-      if (grille[i-1][grille.length-1] != n && grille[i-1][grille.length-1] != 0){life++;}
-      if (grille[i-1][j] != n && grille[i-1][j] != 0){life++;}
-      if (grille[i-1][j+1] != n && grille[i-1][j+1] != 0){life++;}
-      if (grille[i][grille.length-1] != n && grille[i][grille.length-1] != 0){life++;}
-      if (grille[i][j+1] != n && grille[i][j+1] != 0){life++;}
-      if (grille[0][grille.length-1] != n && grille[0][grille.length-1] != 0){life++;}
-      if (grille[0][j] != n && grille[0][j] != 0){life++;}
-      if (grille[0][j+1] != n && grille[0][j+1] != 0){life++;}
-    }
-    else if ((i==0) && (j==grille[i].length-1)) {
-      if (grille[grille.length-1][grille.length-1] != n && grille[grille.length-1][grille.length-1] != 0){life++;}
-      if (grille[grille.length-1][grille.length-1] != n && grille[grille.length-1][grille.length-1] != 0){life++;}
-      if (grille[grille.length-1][0] != n && grille[grille.length-1][0] != 0){life++;}
-      if (grille[i][j-1] != n && grille[i][j-1] != 0){life++;}
-      if (grille[i][0] != n && grille[i][0] != 0){life++;}
-      if (grille[i+1][j-1] != n && grille[i+1][j-1] != 0){life++;}
-      if (grille[i+1][j] != n && grille[i+1][j] != 0){life++;}
-      if (grille[i+1][0] != n && grille[i+1][0] != 0){life++;}
-    }
-    else if ((i==grille.length-1) && (j==grille[i].length-1)) {
-      if (grille[i-1][j-1] != n && grille[i-1][j-1] != 0){life++;}
-      if (grille[i-1][j] != n && grille[i-1][j] != 0){life++;}
-      if (grille[i-1][0] != n && grille[i-1][0] != 0){life++;}
-      if (grille[i][j-1] != n && grille[i][j-1] != 0){life++;}
-      if (grille[i][0] != n && grille[i][0] != 0){life++;}
-      if (grille[0][grille.length-1] != n && grille[0][grille.length-1] != 0){life++;}
-      if (grille[0][grille.length-1] != n && grille[0][grille.length-1] != 0){life++;}
-      if (grille[0][0] != n && grille[0][0] != 0){life++;}
-    }
-    else {
-      if (i==0){
-        if (grille[grille.length-1][j-1] != n && grille[grille.length-1][j-1] != 0){life++;}
-        if (grille[grille.length-1][j] != n && grille[grille.length-1][j] != 0){life++;}
-        if (grille[grille.length-1][j+1] != n && grille[grille.length-1][j+1] != 0){life++;}
-        if (grille[i][j-1] != n && grille[i][j-1] != 0){life++;}
-        if (grille[i][j+1] != n && grille[i][j+1] != 0){life++;}
-        if (grille[i+1][j-1] != n && grille[i+1][j-1] != 0){life++;}
-        if (grille[i+1][j] != n && grille[i+1][j] != 0){life++;}
-        if (grille[i+1][j+1] != n && grille[i+1][j+1] != 0){life++;}
-      }
+  // Case [i-1][j-1]
+  if( grille[(i-1 + grille.length)%grille.length][ (j-1 + grille.length)%grille.length] != n && grille[(i-1 + grille.length)%grille.length][ (j-1 + grille.length)%grille.length] != 0 ) {life++;}
 
-      else if (i==grille.length-1) {
-        if (grille[i-1][j-1] != n && grille[i-1][j-1] != 0){life++;}
-        if (grille[i-1][j] != n && grille[i-1][j] != 0){life++;}
-        if (grille[i-1][j+1] != n && grille[i-1][j+1] != 0){life++;}
-        if (grille[i][j-1] != n && grille[i][j-1] != 0){life++;}
-        if (grille[i][j+1] != n && grille[i][j+1] != 0){life++;}
-        if (grille[0][j-1] != n && grille[0][j-1] != 0){life++;}
-        if (grille[0][j] != n && grille[0][j] != 0){life++;}
-        if (grille[0][j+1] != n && grille[0][j+1] != 0){life++;}
-      }
-      else if (j==0) {
-        if (grille[i-1][grille.length-1] != n && grille[i-1][grille.length-1] != 0){life++;}
-        if (grille[i-1][j] != n && grille[i-1][j] != 0){life++;}
-        if (grille[i-1][j+1] != n && grille[i-1][j+1] != 0){life++;}
-        if (grille[i][grille[i].length-1] != n && grille[i][grille[i].length-1] != 0){life++;}
-        if (grille[i][j+1] != n && grille[i][j+1] != n){life++;}
-        if (grille[i+1][grille[i].length-1] != n && grille[i+1][grille[i].length-1] != 0){life++;}
-        if (grille[i+1][j] != n && grille[i+1][j] != 0){life++;}
-        if (grille[i+1][j+1] != n && grille[i+1][j+1] != 0){life++;}
-      }
-      else if (j==grille[i].length-1) {
-        if (grille[i-1][j-1] != n && grille[i-1][j-1] != 0){life++;}
-        if (grille[i-1][j] != n && grille[i-1][j] != 0){life++;}
-        if (grille[i-1][0] != n && grille[i-1][0] != 0){life++;}
-        if (grille[i][j-1] != n && grille[i][j-1] != 0){life++;}
-        if (grille[i][0] != n && grille[i][0] != 0){life++;}
-        if (grille[i+1][0] != n && grille[i+1][0] != 0){life++;}
-        if (grille[i+1][0] != n && grille[i+1][0] != 0){life++;}
-        if (grille[i+1][0] != n && grille[i+1][0] != 0){life++;}
-      }
+  // Case [i-1][j]
+  if( grille[(i-1 + grille.length)%grille.length][ (j)%grille.length] != n  && grille[(i-1 + grille.length)%grille.length][ (j)%grille.length] != 0) {life++;}
 
-      else{
+  // Case [i-1][j+1]
+  if( grille[(i-1 + grille.length)%grille.length][ (j+1)%grille.length] != n && grille[(i-1 + grille.length)%grille.length][ (j+1)%grille.length] != 0 ) {life++;}
 
-          if (grille[i-1][j-1] != n && grille[i-1][j-1] != 0){life++;}
-          if (grille[i-1][j] != n && grille[i-1][j] != 0){life++;}
-          if (grille[i-1][j+1] != n && grille[i-1][j+1] != 0){life++;}
-          if (grille[i][j-1] != n && grille[i][j-1] != 0){life++;}
-          if (grille[i][j+1] != n && grille[i][j+1] != 0){life++;}
-          if (grille[i+1][j-1] != n && grille[i+1][j-1] != 0){life++;}
-          if (grille[i+1][j] != n && grille[i+1][j] != 0){life++;}
-          if (grille[i+1][j+1] != n && grille[i+1][j+1] != 0){life++;}
+  // Case [i][j-1]
+  if( grille[(i)%grille.length][(j-1 + grille.length)%grille.length] != n && grille[(i)%grille.length][(j-1 + grille.length)%grille.length] != 0 ) {life++;}
 
-      }
-    }
-    return life;
+  // Case [i-1][j+1]
+  if( grille[(i)%grille.length][(j+1)%grille.length] != n && grille[(i)%grille.length][(j+1)%grille.length] != 0 ) {life++;}
+
+  // Case [i+1][j-1]
+  if( grille[(i+1)%grille.length][(j-1 + grille.length)%grille.length] != n && grille[(i+1)%grille.length][(j-1 + grille.length)%grille.length] != 0 ) {life++;}
+
+  // Case [i+1][j]
+  if( grille[(i+1)%grille.length][(j)%grille.length] != n && grille[(i+1)%grille.length][(j)%grille.length] != 0 ) {life++;}
+
+  // Case [i+1][j+1]
+  if( grille[(i+1)%grille.length][(j+1)%grille.length] != n && grille[(i+1)%grille.length][(j+1)%grille.length] != 0 ) {life++;}
+
+
+  return life;
   }
 
 
