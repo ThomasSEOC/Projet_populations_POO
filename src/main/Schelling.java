@@ -10,6 +10,12 @@ import java.util.Stack;
 import java.lang.Object;
 
 
+//==================
+//
+//Pour changer le paramètre K, il faut aller modifier le 2 en ligne 283 
+//
+//==================
+
 public class Schelling extends Grille{
 
 

@@ -14,4 +14,61 @@ Ensimag 2A POO - TPL
 ============================
 
   NOTES :
-  Les questions 
+Les questions 1 à 8 ont été traités. Elles semblent toutes fonctionner normalement mis à part la partie sur les boids.
+
+============================
+Strcture du projet
+
+  - bin
+  - doc_gui
+  - src : contient les classes du projet reparties en packages.
+    - main :
+      - Balls.java
+      - Boid.java
+      - Boids.java
+      - Grille.java
+      - Immigration.java
+      - Jdlv.java
+      - Schelling.java
+      - Vecteur.java
+    - simulator :
+      - BallsSimulator
+      - BoidsSimulator
+      - GrilleSimulator
+      - ImmigrationSimulator
+      - SchellingSimulator
+    - test :
+      - TestBalls.java
+      - TestBallsSimulator.java
+      - TestBoid.java
+      - TestGrille.java
+      - TestGrilleSimulator
+      - TestGUI.java
+      - TestImmigration.java
+      - TestJdlv.java
+      - TestSchelling.java
+      - TestSchellingGrille.java
+      - TestVecteur.java
+  - Makefile
+  - README
+
+============== EXECUTION ==============
+
+Pour executer les programmes contenus dans ce projet écrire dans un terminal :
+
+        make exeBalls                    | > execute le programme du jeu de Balle.
+        make exeGrille                   | > execute le programme demandé à la question 1.
+        make exeGrilleSimulator          | > execute le programme du jeu de la vie.
+        make exeJdlv                     | > execute le programme du jeu de la vie avec une forme intéressante.
+        make exeImm                      | > execute le programme du jeu de l'immigration.
+        make exeSchelling                | > execute le programme du modèle de Schelling.
+        make exeBoids                    | > execute le programme du modèle d'essaims.
+
+=======================================
+NOTE pour Schelling :
+
+Pour modifier le paramètre K, se rendre dans Schelling.java et modifier le 2 par la valeur voulue.
+
+Pour modifier le nombre de couleurs, se rendre dans testSchelling et changer le 4 ligne 19 par un nombre compris entre 2 et 6
+
+=======================================

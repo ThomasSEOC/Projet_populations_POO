@@ -37,6 +37,15 @@ public class SchellingSimulator implements Simulable {
         else if(g.grille[i][j] == 3){
 					gui.addGraphicalElement(new Rectangle(i*10+5,j*10+5, Color.GREEN, Color.GREEN,10));
 				}
+				else if(g.grille[i][j] == 4){
+					gui.addGraphicalElement(new Rectangle(i*10+5,j*10+5, Color.ORANGE, Color.ORANGE,10));
+				}
+				else if(g.grille[i][j] == 5){
+					gui.addGraphicalElement(new Rectangle(i*10+5,j*10+5, Color.WHITE, Color.WHITE,10));
+				}
+				else if(g.grille[i][j] == 6){
+					gui.addGraphicalElement(new Rectangle(i*10+5,j*10+5, Color.GRAY, Color.GRAY,10));
+				}
 			}
 
 		}
@@ -61,6 +70,15 @@ public class SchellingSimulator implements Simulable {
 				}
         else if(g.grille[i][j] == 3){
 					gui.addGraphicalElement(new Rectangle(i*10+5,j*10+5, Color.GREEN, Color.GREEN,10));
+				}
+				else if(g.grille[i][j] == 4){
+					gui.addGraphicalElement(new Rectangle(i*10+5,j*10+5, Color.ORANGE, Color.ORANGE,10));
+				}
+				else if(g.grille[i][j] == 5){
+					gui.addGraphicalElement(new Rectangle(i*10+5,j*10+5, Color.WHITE, Color.WHITE,10));
+				}
+				else if(g.grille[i][j] == 6){
+					gui.addGraphicalElement(new Rectangle(i*10+5,j*10+5, Color.GRAY, Color.GRAY,10));
 				}
 			}
 

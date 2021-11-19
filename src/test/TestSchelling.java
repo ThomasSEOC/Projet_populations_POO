@@ -9,10 +9,13 @@ import java.awt.Point;
 import java.util.*;
 
 
+// Pour changer le nombre de couleur, changer le 4 ligne 19 par un nombre compris entre 2 et 6
+
+
 public class TestSchelling {
 
 	public static void main(String[] args) {
-		Schelling g = new Schelling(50,50,4);
+		Schelling g = new Schelling(50,50,6);
 		GUISimulator gui = new GUISimulator (500, 500, Color.BLACK) ;
 		gui.setSimulable(new SchellingSimulator (gui,g)) ;
 		gui.reset();
@@ -30,6 +33,15 @@ public class TestSchelling {
 				}
         else if(g.grille[i][j] == 3){
 					gui.addGraphicalElement(new Rectangle(i*10+5,j*10+5, Color.GREEN, Color.GREEN,10));
+				}
+				else if(g.grille[i][j] == 4){
+					gui.addGraphicalElement(new Rectangle(i*10+5,j*10+5, Color.ORANGE, Color.ORANGE,10));
+				}
+				else if(g.grille[i][j] == 5){
+					gui.addGraphicalElement(new Rectangle(i*10+5,j*10+5, Color.WHITE, Color.WHITE,10));
+				}
+				else if(g.grille[i][j] == 6){
+					gui.addGraphicalElement(new Rectangle(i*10+5,j*10+5, Color.GRAY, Color.GRAY,10));
 				}
 			}
 		}
