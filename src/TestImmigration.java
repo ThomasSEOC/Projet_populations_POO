@@ -2,7 +2,7 @@ import gui.*;
 import java.awt.Color;
 import java.awt.Point;
 import java.util.*;
-import simulator.ImmigrationSimulator;
+
 
 public class TestImmigration {
 

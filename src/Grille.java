@@ -145,14 +145,14 @@ class Grille{
 
   public void copygrille(int[][] a, int[][] b){
     int i,j;
-    for (i=1;i<a.length-1 ; i++ ) {
-      for (j=1; j<a[i].length-1; j++ ) {
+    for (i=0;i<a.length ; i++ ) {
+      for (j=0; j<a[i].length; j++ ) {
         a[i][j] = b[i][j];
       }
     }
 
   }
-  
+
   public void Init(){
     int i,j;
     for (i = 0; i<grille.length ; i++ ) {
